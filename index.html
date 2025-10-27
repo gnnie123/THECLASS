@@ -4,41 +4,108 @@
   <meta charset="utf-8">
   <title>THE CLASS | PDF Viewer</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      height: 100%;
       background-color: #000;
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
       color: #fff;
-      font-family: 'Noto Sans KR', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      padding-top: 100px;
+      animation: fadeIn 1.5s ease-in;
     }
+
     h1 {
-      color: #e91e63;
-      margin: 0 0 40px;
       font-size: 38px;
-      letter-spacing: .5px;
+      color: #e91e63;
       font-weight: 800;
+      margin-bottom: 60px;
+      letter-spacing: 0.4px;
+      text-shadow: 0 0 10px rgba(233,30,99,0.4);
+      animation: slideDown 1.2s ease-out;
     }
-    .btn {
-      display: inline-block;
+
+    .btn-box {
+      display: flex;
+      gap: 40px;
+      animation: fadeUp 2s ease-in-out;
+    }
+
+    a {
+      text-decoration: none;
       color: #fff;
-      background: #111;
       border: 1px solid #e91e63;
       border-radius: 10px;
-      padding: 16px 42px;
-      margin: 15px;
-      text-decoration: none;
-      transition: all .25s ease;
+      padding: 18px 50px;
+      background: linear-gradient(145deg, #111, #1a1a1a);
       font-size: 18px;
-      box-shadow: 0 0 0 1px rgba(233,30,99,.15) inset;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(233,30,99,0.15);
     }
-    .btn:hover { background-color: #e91e63; color: #fff; transform: translateY(-1px); }
+
+    a:hover {
+      background: #e91e63;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(233,30,99,0.5);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .bg-circle {
+      position: absolute;
+      top: -150px;
+      left: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(233,30,99,0.2), transparent 70%);
+      filter: blur(80px);
+      z-index: 0;
+    }
+
+    .bg-circle2 {
+      position: absolute;
+      bottom: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(233,30,99,0.25), transparent 70%);
+      filter: blur(80px);
+      z-index: 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Select the brand catalogue you want to view.</h1>
+  <div class="bg-circle"></div>
+  <div class="bg-circle2"></div>
 
-  <a class="btn" href="theclass.html" aria-label="Open THE CLASS Catalogue">THE CLASS Catalogue</a>
-  <a class="btn" href="bullet.html" aria-label="Open BULLET Catalogue">BULLET Catalogue</a>
+  <div class="container">
+    <h1>Select the brand catalogue you want to view.</h1>
+    <div class="btn-box">
+      <a href="theclass.html">THE CLASS Catalogue</a>
+      <a href="bullet.html">BULLET Catalogue</a>
+    </div>
+  </div>
 </body>
 </html>
